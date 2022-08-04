@@ -1,15 +1,22 @@
 public class Main {
     public static void main(String[] args) {
-        task6();
+        task7();
     }
-    public static void task6() {
-        int age = 19;
-        int salary = 58_000;
-        int credit;
-        if (age< 23) { credit = salary * 2; }
-        else credit = salary * 3;
-        if (salary >= 50_000 && salary < 80_000) { credit *= 1.2; }
-        if (salary >= 80_000 ) { credit *= 1.5; }
-        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + credit + " рублей");
+    public static void task7() {
+        int age = 25;
+        int salary = 50_000;
+        int wantedSum = 330_000;
+        double stavka = 10;
+        double maxpay;
+        String answer = "Отказано";
+        if (age< 23) { stavka += 1; }
+        if (age>= 23 && age <30) { stavka += 0.5; }
+        if (salary >= 80_000) { stavka -= 0.7; }
+        maxpay = wantedSum * (stavka + 100) / 100 /12;
+        if (salary * 0.5 >= maxpay) {
+            answer = "Одобрено";
+        }
+        System.out.println("Максимальный платеж при ЗП равен " + (salary * 0.5) + " рублей. Платеж по кредиту "
+                + maxpay + " рублей. " + answer);
     }
 }
